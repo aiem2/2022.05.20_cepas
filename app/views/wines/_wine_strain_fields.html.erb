@@ -1,13 +1,15 @@
-<div>
-    <%= f.label :strain %>
-    <%= f.collection_select :strain_id, @strains, :id, :name %>
-</div>
+<div class="nested-fields">
+    <div>
+        <%= f.label :strain %>
+        <%= f.collection_select :strain_id, @strains, :id, :name %>
+    </div>
 
-<div>
-    <%= f.label :percentage %>
-    <%= f.number_field :percentage %>
-</div>
+    <div>
+        <%= f.label :percentage %>
+        <%= f.number_field :percentage %>
+    </div>
 
-<div>
-    <%= link_to_remove_association 'Remover Cepa', f %>
+    <div>
+        <%= link_to_remove_association 'Remover Cepa', f %>
+    </div>
 </div>
