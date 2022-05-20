@@ -1,0 +1,2 @@
+class Oenologist < ApplicationRecord
+end

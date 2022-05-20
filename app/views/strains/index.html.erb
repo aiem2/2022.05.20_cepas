@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Strains</h1>
+<br>
+  <div class="btn btn-success"><%= link_to 'New Strain', new_strain_path, style: "color:white; text-decoration:none" %></div>
+<br>
+<br>
+<div id="strains">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @strains.each do |strain| %>
+      <tr>
+        <td><%= strain.name %></td>
+        <td><%= link_to 'Show', strain %></td>
+        <td><%= link_to 'Edit', edit_strain_path(strain) %></td>
+        <td><%= link_to 'Destroy', strain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
