@@ -1,0 +1,33 @@
+ <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <nav class="navbar">
+        <div class="container cont_logo">
+          <a class="navbar-brand" href="/">Vinos de Peter</a>
+        </div>
+    </nav>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <% unless user_signed_in? %>
+        <ul class="nav navbar-nav">
+          <li class="mx-3 fw-semibold"><%= link_to "Ingresar", new_user_session_path%></li>
+          <li class="mx-3 fw-semibold"><%= link_to "Registrarse", new_user_registration_path%></li>
+        </ul>
+      <% end %>
+      <% if user_signed_in? %>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item mx-3 fw-semibold">
+            <%=link_to 'Vinos', wines_path%>
+          </li>
+        </ul>
+        
+        <%= link_to "Salir", destroy_user_session_path, data:{turbo_method: :delete}, class:"fw-normal me-5"%>
+        
+      <% end %>  
+    </div>   
+    </div>
+  </div>
+</nav>
+
+

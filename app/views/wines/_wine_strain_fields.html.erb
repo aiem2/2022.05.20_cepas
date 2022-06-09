@@ -1,7 +1,7 @@
 <div class="nested-fields">
     <div>
         <%= f.label :strain %>
-        <%= f.collection_select :strain_id, @strains, :id, :name %>
+        <%= f.collection_select :strain_id, @strains, :id, :name, :prompt => "Selecciones una opción:" %>
     </div>
 
     <div>

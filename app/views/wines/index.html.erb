@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Wines</h1>
 <br>
-  <div class="btn btn-success"><%= link_to 'New Wine', new_wine_path, style: "color:white; text-decoration:none" %></div>
+  <% if current_user.admin?%>
+    <div class="btn btn-success"><%= link_to 'New Wine', new_wine_path, style: "color:white; text-decoration:none" %></div>
+  <% end%>
 <br>
 <br>
 <table>
@@ -21,13 +21,16 @@
         <td><%#= wine.strains.map(&:name).sort.join(', ') %>
           <ul>
             <% wine.wine_strains.each do |wine_spec|%>
-              <li><%= wine_spec.strain.name %> <%= wine_spec.percentage %> %</li>
+              <li><%= wine_spec.strain.name %> (<%= wine_spec.percentage %> %)</li>
             <% end%>
           </ul>
         </td>
-        <td><%= link_to 'Show', wine %></td>
-        <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-        <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.admin?%>
+          <td><%= link_to 'Show', wine %></td>
+          <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
+          <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>

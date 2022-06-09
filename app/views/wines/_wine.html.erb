@@ -9,4 +9,9 @@
     <%= wine.score %>
   </p>
 
+  <% wine.wine_strains.each do |wine_spec|%>
+    <li><%= wine_spec.strain.name %> (<%= wine_spec.percentage %> %)</li>
+  <% end%>
+  
+
 </div>
