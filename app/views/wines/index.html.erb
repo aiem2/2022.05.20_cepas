@@ -5,33 +5,41 @@
   <% end%>
 <br>
 <br>
-<table>
+
+
+<table class="table table-light table-stripped mr-5">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Strains</th>
-      <th colspan="3"></th>
+      <% if current_user.admin?%>
+        <th scope="col">Id</th>
+      <% end %>
+      <th scope="col">Name</th>
+      <th scope="col">Score</th>
+      <th scope="col">Strains</th>
+      <%if current_user.admin?%>
+        <th scope="col">Details/Edit/Delete</th>
+      <% end %>
     </tr>
   </thead>
-
   <tbody>
-    <% @wines.each do |wine| %>
-      <tr>
-        <td><%= wine.name %></td>
-        <td><%#= wine.strains.map(&:name).sort.join(', ') %>
-          <ul>
-            <% wine.wine_strains.each do |wine_spec|%>
-              <li><%= wine_spec.strain.name %> (<%= wine_spec.percentage %> %)</li>
-            <% end%>
-          </ul>
-        </td>
+    <% @wines.each do |wine|%>
+    <tr>
         <% if current_user.admin?%>
-          <td><%= link_to 'Show', wine %></td>
-          <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-          <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= wine.id %></td>
         <% end %>
-        
+        <td><%= wine.name %></td>
+        <td><%= wine.score %></td>
+        <td> <% wine.wine_strains.each do |wine_spec|%>
+              <%= wine_spec.strain.name %> (<%= wine_spec.percentage %> %)
+            <% end%></td>
+        <% if current_user.admin?%>
+          <td><%= link_to 'Show', wine%></td>
+        <% end %>     
       </tr>
     <% end %>
-  </tbody>
+  <tbody>
 </table>
+</div>
+
+
+
