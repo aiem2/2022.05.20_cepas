@@ -1,24 +1,11 @@
-# README
+Archivos Seeds creados:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Para ingresar como Admin
 
-Things you may want to cover:
+mail: peter@ejemplo.cl
+password: 123456
 
-* Ruby version
+Para ingresar como usuario normal
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+mails prueba1@ejemplo.cl / prueba2@ejemplo.cl
+password: 123456 / 123456
