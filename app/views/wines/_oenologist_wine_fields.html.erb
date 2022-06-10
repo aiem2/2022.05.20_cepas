@@ -1,0 +1,11 @@
+<div class="nested-fields">
+    <div>
+        <%= f.label :oenologist_id %>
+        <%= f.collection_select :oenologist_id, @oenologists, :id, :name, :prompt => "Choose an option:" %>
+    </div>
+    <div>
+        <%= f.label :rate %>
+        <%= f.number_field :rate %>
+    </div>
+
+</div>

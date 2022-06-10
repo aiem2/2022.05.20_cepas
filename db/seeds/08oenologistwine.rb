@@ -1,0 +1,8 @@
+OenologistWine.create(oenologist_id: 1, wine_id: 1, rate: 90)
+OenologistWine.create(oenologist_id: 2, wine_id: 1, rate: 95)
+OenologistWine.create(oenologist_id: 3, wine_id: 1, rate: 92)
+OenologistWine.create(oenologist_id: 4, wine_id: 1, rate: 88)
+OenologistWine.create(oenologist_id: 1, wine_id: 2, rate: 70)
+OenologistWine.create(oenologist_id: 2, wine_id: 2, rate: 75)
+OenologistWine.create(oenologist_id: 3, wine_id: 2, rate: 82)
+OenologistWine.create(oenologist_id: 4, wine_id: 2, rate: 78)

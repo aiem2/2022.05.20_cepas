@@ -1,5 +1,12 @@
 class OenologistsController < ApplicationController
   before_action :set_oenologist, only: %i[ show edit update destroy ]
+  before_action :must_be_admin, only: %i[new show create edit update destroy]
+
+  def must_be_admin
+      unless current_user && current_user.admin?
+          redirect_to root_path, notice: "Can't access this section"
+      end
+  end
 
   # GET /oenologists or /oenologists.json
   def index
@@ -76,6 +83,7 @@ class OenologistsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def oenologist_params
       @magazine = Magazine.all
-      params.require(:oenologist).permit(:name, :dob, :nationality, magazine_oenologists_attributes: [:id, :magazine_id, :oenologist_id, :title, :_destroy])
+      params.require(:oenologist).permit(:name, :dob, :nationality, magazine_oenologists_attributes: [:id, :magazine_id, :oenologist_id, :title, :_destroy],
+        oenologist_wines_attributes: [:id, :oenologist_id, :wine_id, :rate, :_destroy])
     end
 end

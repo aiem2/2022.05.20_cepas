@@ -22,7 +22,13 @@
           </li>
           <% if current_user.admin?%>
             <li class="nav-item mx-3 fw-semibold">
+              <%=link_to 'New Strain', new_strain_path%>
+            </li>
+            <li class="nav-item mx-3 fw-semibold">
               <%=link_to 'Oenologists', oenologists_path%>
+            </li>
+            <li class="nav-item mx-3 fw-semibold">
+              <%=link_to 'Oenologists ratings', oenologist_wines_path%>
             </li>
             <li class="nav-item mx-3 fw-semibold">
               <%=link_to 'Magazines', magazines_path%>

@@ -4,13 +4,14 @@ class WinesController < ApplicationController
 
   def must_be_admin
       unless current_user && current_user.admin?
-          redirect_to root_path, notice: "No puede acceder a esta sección"
+          redirect_to root_path, notice: "Can't access this section"
       end
   end
 
   # GET /wines or /wines.json
   def index
-    @wines = Wine.all
+    @wines = Wine.all.order(name: :asc)
+    @oenologists = Oenologist.all.order(dob: :desc)
   end
 
   # GET /wines/1 or /wines/1.json
@@ -22,11 +23,13 @@ class WinesController < ApplicationController
     @wine = Wine.new
     @wine.wine_strains.build
     @strains = Strain.all.order(name: :asc)
+    @oenologists = Oenologist.all.order(dob: :desc)
   end
 
   # GET /wines/1/edit
   def edit
     @strains = Strain.all.order(name: :asc)
+    @oenologists = Oenologist.all.order(dob: :desc)
   end
 
   # POST /wines or /wines.json
@@ -75,6 +78,6 @@ class WinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wine_params
-      params.require(:wine).permit(:name,:score, wine_strains_attributes: [:id, :strain_id, :percentage, :_destroy])
+      params.require(:wine).permit(:name,:score, wine_strains_attributes: [:id, :strain_id, :percentage, :_destroy], oenologist_wines_attributes: [:id, :oenologist_id, :wine_id, :rate])
     end
 end

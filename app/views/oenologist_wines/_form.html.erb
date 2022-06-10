@@ -1,0 +1,32 @@
+<%= form_with(model: oenologist_wine) do |form| %>
+  <% if oenologist_wine.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(oenologist_wine.errors.count, "error") %> prohibited this oenologist_wine from being saved:</h2>
+
+      <ul>
+        <% oenologist_wine.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+    <div>
+        <%= form.label :oenologist_id %>
+        <%= form.collection_select :oenologist_id, @oenologists, :id, :name, :prompt => "Choose an option:" %>
+    </div>
+
+    <div>
+        <%= form.label :wine %>
+        <%= form.collection_select :wine_id, @wines, :id, :name, :prompt => "Choose an option:" %>
+    </div>
+
+    <div>
+        <%= form.label :rate %>
+        <%= form.number_field :rate %>
+    </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -11,18 +11,11 @@
     </div>
   <% end %>
   
-  <div>
-    <%= form.label :magazine_id, style: "display: block" %>
-    <%= form.number_field :magazine_id %>
-  </div>
-
-  <div>
-    <%= form.label :oenologist_id, style: "display: block" %>
-    <%= form.number_field :oenologist_id %>
-  </div>
-
-  <div>
-    <%= form.select :area, @jobs, :prompt => "Selecciones una opción:", class:"form-control"%>
+  <div class="nested-fields">
+    <%= form.label :magazine %>
+    <%= form.fields_for :magazine_oenologists do |ff|%>
+      <%= render 'magazine_oenologist_fields', f: ff%>
+    <% end %> 
   </div>
   
   <div>

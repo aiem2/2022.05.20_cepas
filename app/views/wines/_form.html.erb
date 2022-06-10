@@ -27,10 +27,18 @@
       <%= render 'wine_strain_fields', f: ff%>
     <% end %> 
   </div>
-  
   <div>
-    <%= link_to_add_association 'Añadir Cepa', form, :wine_strains %>
+    <%= link_to_add_association 'Add strain', form, :wine_strains %>
   </div>
+  <br>
+    <div class="nested-fields">
+    <%= form.label :oenologists %>
+    <%= form.fields_for :oenologist_wines do |ff|%>
+      <%= render 'oenologist_wine_fields', f: ff%>
+    <% end %> 
+  </div>
+  
+
 
   <div>
     <%= form.submit %>

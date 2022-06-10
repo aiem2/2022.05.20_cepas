@@ -4,7 +4,7 @@ class MagazineOenologistsController < ApplicationController
 
   def must_be_admin
       unless current_user && current_user.admin?
-          redirect_to root_path, notice: "No puede acceder a esta sección"
+          redirect_to root_path, notice: "Can't access this section"
       end
   end
 
@@ -77,6 +77,6 @@ class MagazineOenologistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def magazine_oenologist_params
-      params.require(:magzine_oenologist).permit(:id, :magazine_id, :oenologist_id, :title)
+      params.require(:magazine_oenologist).permit(:id, :magazine_id, :oenologist_id, :title)
     end
 end

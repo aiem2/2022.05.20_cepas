@@ -1,0 +1,32 @@
+<h1>Oenologist's ratings</h1>
+<br>
+  <% if current_user.admin?%>
+    <div class="btn btn-success"><%= link_to "New Oenologist Rating", new_oenologist_wine_path , style: "color:white; text-decoration:none" %></div>
+  <% end%>
+  <br>
+  <br>
+
+<table class="table table-light table-stripped mr-5">
+  <thead>
+    <tr>
+      <th scope="col">Oenologist</td>
+      <th scope="col">Wine</td>
+      <th scope="col">Rating</td>
+      <th scope="col">Details/Edit/Delete</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @oenologist_wines.each do |orat| %>
+      <tr>
+        <td><%= orat.oenologist_name%></td>
+        <td><%= orat.wine_name%></td>
+        <td><%= orat.rate%></td>
+        <td><%= link_to 'Show', orat%></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "New Oenologist rating", new_oenologist_wine_path %>

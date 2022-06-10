@@ -1,0 +1,8 @@
+<%= render @oenologist_wine %>
+
+<div>
+  <%= link_to "Edit this oenologist wine", edit_oenologist_wine_path(@oenologist_wine) %> |
+  <%= link_to "Back to oenologist wines", oenologist_wines_path %>
+
+  <%= button_to "Destroy this oenologist wine", @oenologist_wine, method: :delete %>
+</div>

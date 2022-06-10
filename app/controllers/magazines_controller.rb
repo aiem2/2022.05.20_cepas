@@ -1,5 +1,12 @@
 class MagazinesController < ApplicationController
   before_action :set_magazine, only: %i[ show edit update destroy ]
+  before_action :must_be_admin, only: %i[new show create edit update destroy]
+
+  def must_be_admin
+      unless current_user && current_user.admin?
+          redirect_to root_path, notice: "Can't access this section"
+      end
+  end
 
   # GET /magazines or /magazines.json
   def index

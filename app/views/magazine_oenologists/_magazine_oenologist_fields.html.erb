@@ -1,0 +1,15 @@
+<div class="nested-fields">
+    <div>
+        <%= f.label :magazine %>
+        <%= f.collection_select :magazine_id, @magazines, :id, :name, :prompt => "Choose an option:" %>
+    </div>
+
+    <div>
+        <%= f.label :percentage %>
+        <%= f.number_field :percentage %>
+    </div>
+
+    <div>
+        <%= link_to_remove_association 'Delete job', f %>
+    </div>
+</div>

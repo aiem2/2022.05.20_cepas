@@ -16,6 +16,7 @@
       <th scope="col">Name</th>
       <th scope="col">Score</th>
       <th scope="col">Strains</th>
+      <th scope="col">Oenologist's ratings</th>
       <%if current_user.admin?%>
         <th scope="col">Details/Edit/Delete</th>
       <% end %>
@@ -32,6 +33,9 @@
         <td> <% wine.wine_strains.each do |wine_spec|%>
               <%= wine_spec.strain.name %> (<%= wine_spec.percentage %> %)
             <% end%></td>
+        <td> <% wine.oenologist_wines.each do |wine_spec|%>
+              <%= wine_spec.oenologist.name %> <%= wine_spec.rate %> % <br>  
+          <% end%></td>
         <% if current_user.admin?%>
           <td><%= link_to 'Show', wine%></td>
         <% end %>     
