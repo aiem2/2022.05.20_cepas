@@ -4,4 +4,20 @@
     <%= oenologist.name %>
   </p>
 
+  <p>
+    <strong>Dob:</strong>
+    <%= oenologist.dob %>
+  </p>
+
+  <p>
+    <strong>Nationality:</strong>
+    <%= oenologist.nationality %>
+  </p>
+
+  <p>
+    <strong>Jobs:</strong>
+    <% oenologist.magazine_oenologists.each do |oen_spec|%>
+    <li>"<%= oen_spec.magazine.name %>" as <%= oen_spec.title %></li>
+    <% end%>
+  </p>
 </div>

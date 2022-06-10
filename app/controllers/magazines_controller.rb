@@ -1,12 +1,5 @@
 class MagazinesController < ApplicationController
   before_action :set_magazine, only: %i[ show edit update destroy ]
-  before_action :must_be_admin, only: %i[new show create edit update destroy]
-
-  def must_be_admin
-      unless current_user && current_user.admin?
-          redirect_to root_path, notice: "No puede acceder a esta sección"
-      end
-  end
 
   # GET /magazines or /magazines.json
   def index
@@ -72,6 +65,6 @@ class MagazinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def magazine_params
-      params.require(:magazine).permit(:title)
+      params.require(:magazine).permit(:name)
     end
 end

@@ -1,12 +1,31 @@
 <h1>Magazines</h1>
+<br>
+  <% if current_user.admin?%>
+    <div class="btn btn-success"><%= link_to "New magazine", new_magazine_path , style: "color:white; text-decoration:none" %></div>
+  <% end%>
+<br>
+<br>
 
-<div id="magazines">
-  <% @magazines.each do |magazine| %>
-    <%= render magazine %>
-    <p>
-      <%= link_to "Show this magazine", magazine %>
-    </p>
-  <% end %>
+
+<table class="table table-light table-stripped mr-5">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Details/Edit/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @magazines.each do |magazine|%>
+    <tr>
+        <td><%= magazine.id %></td>
+        <td><%= magazine.name %></td>
+        <td><%= link_to 'Show', magazine %></td>
+      </tr>
+    <% end %>
+  <tbody>
+</table>
 </div>
 
-<%= link_to "New magazine", new_magazine_path %>
+
+

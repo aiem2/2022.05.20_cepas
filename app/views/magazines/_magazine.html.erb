@@ -1,7 +1,14 @@
 <div id="<%= dom_id magazine %>">
   <p>
-    <strong>Title:</strong>
-    <%= magazine.title %>
+    <strong>Name:</strong>
+    <%= magazine.name %>
+  </p>
+
+  <p>
+    <strong>Workers:</strong>
+    <% magazine.magazine_oenologists.each do |mag_spec|%>
+    <li><%= mag_spec.oenologist.name %> as <%= mag_spec.title %></li>
+    <% end%>
   </p>
 
 </div>

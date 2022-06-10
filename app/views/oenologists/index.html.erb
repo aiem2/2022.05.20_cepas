@@ -1,12 +1,28 @@
 <h1>Oenologists</h1>
+<br>
+  <% if current_user.admin?%>
+    <div class="btn btn-success"><%= link_to "New Oenologist", new_oenologist_path , style: "color:white; text-decoration:none" %></div>
+  <% end%>
+<br>
+<br>
 
-<div id="oenologists">
-  <% @oenologists.each do |oenologist| %>
-    <%= render oenologist %>
-    <p>
-      <%= link_to "Show this oenologist", oenologist %>
-    </p>
-  <% end %>
+
+<table class="table table-light table-stripped mr-5">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Details/Edit/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @oenologists.each do |oenologist|%>
+    <tr>
+        <td><%= oenologist.id %></td>
+        <td><%= oenologist.name %></td>
+        <td><%= link_to 'Show', oenologist %></td>
+      </tr>
+    <% end %>
+  <tbody>
+</table>
 </div>
-
-<%= link_to "New oenologist", new_oenologist_path %>

@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <nav class="navbar">
         <div class="container cont_logo">
-          <a class="navbar-brand" href="/">Vinos de Peter</a>
+          <a class="navbar-brand" href="/">Peter's wines</a>
         </div>
     </nav>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,8 +18,16 @@
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto">
           <li class="nav-item mx-3 fw-semibold">
-            <%=link_to 'Vinos', wines_path%>
+            <%=link_to 'Wines', wines_path%>
           </li>
+          <% if current_user.admin?%>
+            <li class="nav-item mx-3 fw-semibold">
+              <%=link_to 'Oenologists', oenologists_path%>
+            </li>
+            <li class="nav-item mx-3 fw-semibold">
+              <%=link_to 'Magazines', magazines_path%>
+            </li>
+          <% end%>
         </ul>
         
         <%= link_to "Salir", destroy_user_session_path, data:{turbo_method: :delete}, class:"fw-normal me-5"%>

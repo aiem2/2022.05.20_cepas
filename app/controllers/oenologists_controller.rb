@@ -1,34 +1,37 @@
 class OenologistsController < ApplicationController
   before_action :set_oenologist, only: %i[ show edit update destroy ]
-  before_action :must_be_admin, only: %i[new show create edit update destroy]
-
-  def must_be_admin
-      unless current_user && current_user.admin?
-          redirect_to root_path, notice: "No puede acceder a esta sección"
-      end
-  end
 
   # GET /oenologists or /oenologists.json
   def index
     @oenologists = Oenologist.all
+    @magazines = Magazine.all
+    @jobs = ['Editor', 'Writer', 'Reviewer']
   end
 
   # GET /oenologists/1 or /oenologists/1.json
   def show
+    @magazines = Magazine.all
+    @jobs = ['Editor', 'Writer', 'Reviewer']
   end
 
   # GET /oenologists/new
   def new
     @oenologist = Oenologist.new
+    @magazines = Magazine.all
+    @jobs = ['Editor', 'Writer', 'Reviewer']
   end
 
   # GET /oenologists/1/edit
   def edit
+    @magazines = Magazine.all
+    @jobs = ['Editor', 'Writer', 'Reviewer']
   end
 
   # POST /oenologists or /oenologists.json
   def create
     @oenologist = Oenologist.new(oenologist_params)
+    @magazines = Magazine.all
+    @jobs = ['Editor', 'Writer', 'Reviewer']
 
     respond_to do |format|
       if @oenologist.save
@@ -72,6 +75,7 @@ class OenologistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def oenologist_params
-      params.require(:oenologist).permit(:name)
+      @magazine = Magazine.all
+      params.require(:oenologist).permit(:name, :dob, :nationality, magazine_oenologists_attributes: [:id, :magazine_id, :oenologist_id, :title, :_destroy])
     end
 end

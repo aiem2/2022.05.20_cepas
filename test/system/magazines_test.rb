@@ -14,7 +14,7 @@ class MagazinesTest < ApplicationSystemTestCase
     visit magazines_url
     click_on "New magazine"
 
-    fill_in "Title", with: @magazine.title
+    fill_in "Name", with: @magazine.name
     click_on "Create Magazine"
 
     assert_text "Magazine was successfully created"
@@ -25,7 +25,7 @@ class MagazinesTest < ApplicationSystemTestCase
     visit magazine_url(@magazine)
     click_on "Edit this magazine", match: :first
 
-    fill_in "Title", with: @magazine.title
+    fill_in "Name", with: @magazine.name
     click_on "Update Magazine"
 
     assert_text "Magazine was successfully updated"

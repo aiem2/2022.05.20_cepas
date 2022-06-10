@@ -14,7 +14,9 @@ class OenologistsTest < ApplicationSystemTestCase
     visit oenologists_url
     click_on "New oenologist"
 
+    fill_in "Dob", with: @oenologist.dob
     fill_in "Name", with: @oenologist.name
+    fill_in "Nationality", with: @oenologist.nationality
     click_on "Create Oenologist"
 
     assert_text "Oenologist was successfully created"
@@ -25,7 +27,9 @@ class OenologistsTest < ApplicationSystemTestCase
     visit oenologist_url(@oenologist)
     click_on "Edit this oenologist", match: :first
 
+    fill_in "Dob", with: @oenologist.dob
     fill_in "Name", with: @oenologist.name
+    fill_in "Nationality", with: @oenologist.nationality
     click_on "Update Oenologist"
 
     assert_text "Oenologist was successfully updated"

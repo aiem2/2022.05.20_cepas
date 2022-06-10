@@ -17,7 +17,7 @@ class MagazinesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create magazine" do
     assert_difference("Magazine.count") do
-      post magazines_url, params: { magazine: { title: @magazine.title } }
+      post magazines_url, params: { magazine: { name: @magazine.name } }
     end
 
     assert_redirected_to magazine_url(Magazine.last)
@@ -34,7 +34,7 @@ class MagazinesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update magazine" do
-    patch magazine_url(@magazine), params: { magazine: { title: @magazine.title } }
+    patch magazine_url(@magazine), params: { magazine: { name: @magazine.name } }
     assert_redirected_to magazine_url(@magazine)
   end
 

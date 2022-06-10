@@ -17,6 +17,27 @@
   </div>
 
   <div>
+    <%= form.label :dob, style: "display: block" %>
+    <%= form.date_field :dob %>
+  </div>
+
+  <div>
+    <%= form.label :nationality, style: "display: block" %>
+    <%= form.text_field :nationality %>
+  </div>
+
+  <div class="nested-fields">
+    <%= form.label :magazines %>
+    <%= form.fields_for :magazine_oenologists do |ff|%>
+      <%= render 'magazine_oenologists_fields', f: ff%>
+    <% end %> 
+  </div>
+
+  <div>
+    <%= link_to_add_association 'Add Job', form, :magazine_oenologists %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

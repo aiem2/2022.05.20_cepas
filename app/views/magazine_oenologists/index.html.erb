@@ -1,0 +1,24 @@
+<h1>Magazine Oenologists</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Magazine</td>
+      <td>Oneologist</td>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @magazine_oenologists.each do |mo| %>
+      <tr>
+        <td><%= mo.magazine_id%></td>
+        <td><%= mo.oenologist_id%></td>
+        <td><%= link_to 'Show', mo %></td>
+        <td><%= link_to 'Edit', edit_magazine_oenologist_path(mo) %></td>
+        <td><%= link_to 'Destroy', mo, method: :delete, data: {
+        confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "New magazine oenologist", new_magazine_oenologist_path %>

@@ -2,6 +2,10 @@
 
 one:
   name: MyString
+  dob: 2022-06-09
+  nationality: MyString
 
 two:
   name: MyString
+  dob: 2022-06-09
+  nationality: MyString
