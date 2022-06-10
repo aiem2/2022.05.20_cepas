@@ -13,33 +13,33 @@ class OenologistWinesController < ApplicationController
   def index
     @oenologist_wines = OenologistWine.all
     @wines = Wine.all
-    @oenologists = Oenologist.all
+    @oenologists = Oenologist.all.order(dob: :desc)
   end
 
   # GET /oenologist_wines/1 or /oenologist_wines/1.json
   def show
     @wines = Wine.all
-    @oenologists = Oenologist.all
+    @oenologists = Oenologist.all.order(dob: :desc)
   end
 
   # GET /oenologist_wines/new
   def new
     @oenologist_wine = OenologistWine.new
     @wines = Wine.all
-    @oenologists = Oenologist.all
+    @oenologists = Oenologist.all.order(dob: :desc)
   end
 
   # GET /oenologist_wines/1/edit
   def edit
     @wines = Wine.all
-    @oenologists = Oenologist.all
+    @oenologists = Oenologist.all.order(dob: :desc)
   end
 
   # POST /oenologist_wines or /oenologist_wines.json
   def create
     @oenologist_wine = OenologistWine.new(oenologist_wine_params)
     @wines = Wine.all
-    @oenologists = Oenologist.all
+    @oenologists = Oenologist.all.order(dob: :desc)
     respond_to do |format|
       if @oenologist_wine.save
         format.html { redirect_to oenologist_wine_url(@oenologist_wine), notice: "Oenologist wine was successfully created." }

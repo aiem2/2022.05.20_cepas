@@ -70,6 +70,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'ffi'
 end
 
 gem 'cocoon'
